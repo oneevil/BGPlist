@@ -1,0 +1,2 @@
+route 185.243.84.0/22 reject;
+route 193.200.250.0/24 reject;

@@ -54,4 +54,5 @@ cat list/youtube.lst | sed 's_.*_route & reject;_' > bird/youtube.txt
 cat list/avito.lst | sed 's_.*_route & reject;_' > bird/ru/avito.txt
 cat list/ozon.lst | sed 's_.*_route & reject;_' > bird/ru/ozon.txt
 cat list/rugov.lst | sed 's_.*_route & reject;_' > bird/ru/rugov.txt
+cat list/start.lst | sed 's_.*_route & reject;_' > bird/ru/start.txt
 cat list/vkontakte.lst | sed 's_.*_route & reject;_' > bird/ru/vkontakte.txt
