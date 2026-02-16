@@ -7,17 +7,17 @@ update() {
   tmp=$(mktemp)
 
   if wget -q -O "$tmp" "$url"; then
-    if ! cmp -s "$tmp" "$file"; then
-      mv "$tmp" "$file"
+    if ! cmp -s "$tmp" "$file" 2>/dev/null; then
+      install -m 644 "$tmp" "$file"
       echo "Updated: $file"
     else
-      rm -f "$tmp"
       echo "No change: $file"
     fi
   else
     echo "Download failed: $file"
-    rm -f "$tmp"
   fi
+
+  rm -f "$tmp"
 }
 
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/akamai/ipv4_merged.txt list/akamai.lst
