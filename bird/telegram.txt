@@ -1,0 +1,11 @@
+route 91.105.192.0/23 reject;
+route 91.108.16.0/21 reject;
+route 91.108.36.0/22 reject;
+route 91.108.4.0/22 reject;
+route 91.108.56.0/22 reject;
+route 91.108.8.0/21 reject;
+route 95.161.64.0/20 reject;
+route 95.161.80.0/24 reject;
+route 95.161.84.0/22 reject;
+route 149.154.160.0/20 reject;
+route 185.76.151.0/24 reject;
