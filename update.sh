@@ -24,23 +24,23 @@ update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/akamai/ipv4_
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/amazon/ipv4_merged.txt list/amazon.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/amazoncloudfront/ipv4_merged.txt list/amazoncloudfront.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/avito/ipv4_merged.txt list/avito.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/chatgpt/ipv4_merged.txt list/chatgpt.lst
+update "https://iplist.opencck.org/?format=text&data=cidr4&site=chatgpt.com" list/chatgpt.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/cloudflare/ipv4_merged.txt list/cloudflare.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/discord/ipv4_merged.txt list/discord.lst
+update "https://iplist.opencck.org/?format=text&data=cidr4&site=discord.com&site=discord.gg&site=discord.media" list/discord.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/google/ipv4_merged.txt list/google.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=kino.pub" list/kinopub.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/meta/ipv4_merged.txt list/meta.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/oracle/ipv4_merged.txt list/oracle.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/ozonru/ipv4_merged.txt list/ozon.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/rezka/ipv4_merged.txt list/rezka.lst
+update "https://iplist.opencck.org/?format=text&data=cidr4&site=hdrezka.ag" list/rezka.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/rugov/ipv4_merged.txt list/rugov.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/tiktok/ipv4_merged.txt list/tiktok.lst
+update "https://iplist.opencck.org/?format=text&data=cidr4&site=tiktok.com" list/tiktok.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=themoviedb.org" list/themoviedb.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=1337x.to&site=booktracker.org&site=filmitorrent.net&site=freetp.org&site=kinozal.me&site=newstudio.tv&site=nnmclub.to&site=rustorka.com&site=rutor.info&site=rutracker.org&site=thepiratebay.org&site=torrent.by" list/torrents.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=telegram.org" list/telegram.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/vkontakte/ipv4_merged.txt list/vkontakte.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/yandex/ipv4_merged.txt list/yandex.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/youtube/ipv4_merged.txt list/youtube.lst
+update "https://iplist.opencck.org/?format=text&data=cidr4&site=youtube.com" list/youtube.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=roblox.com" list/roblox.lst
 
 cat list/akamai.lst | sed 's_.*_route & reject;_' > bird/akamai.txt
