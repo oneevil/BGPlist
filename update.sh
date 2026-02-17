@@ -38,6 +38,7 @@ update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/oracle/ipv4_
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=ozon.ru" list/ozon.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=pornhub.com" list/porn.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=hdrezka.ag" list/rezka.lst
+update "https://iplist.opencck.org/?format=text&data=cidr4&site=roblox.com" list/roblox.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/rugov/ipv4_merged.txt list/rugov.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=tiktok.com" list/tiktok.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=themoviedb.org" list/themoviedb.lst
@@ -46,7 +47,8 @@ update "https://iplist.opencck.org/?format=text&data=cidr4&site=telegram.org" li
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=vk.com&site=vk%40vkplay.ru&site=vk%40vkvideo.ru" list/vkontakte.lst
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=yandex%40kinopoisk.ru&site=yandex.ru&site=yandex%40alice&site=yandex%40auto.ru&site=yandex%40business&site=yandex%40cdn&site=yandex%40cloud&site=yandex%40disk&site=yandex%40mail&site=yandex%40maps&site=yandex%40market&site=yandex%40media&site=yandex%40other&site=yandex%40smartcaptcha&site=yandex%40tools&site=yandex%40web" list/yandex.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=youtube.com" list/youtube.lst
-update "https://iplist.opencck.org/?format=text&data=cidr4&site=roblox.com" list/roblox.lst
+update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=rutube.ru" list/rutube.lst
+update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=wb.ru" list/wb.lst
 
 cat list/akamai.lst | sed 's_.*_route & reject;_' > bird/akamai.txt
 cat list/amazon.lst | sed 's_.*_route & reject;_' > bird/amazon.txt
@@ -77,3 +79,5 @@ cat list/start.lst | sed 's_.*_route & reject;_' > bird/ru/start.txt
 cat list/vkontakte.lst | sed 's_.*_route & reject;_' > bird/ru/vkontakte.txt
 cat list/yandex.lst | sed 's_.*_route & reject;_' > bird/ru/yandex.txt
 cat list/youtube.lst | sed 's_.*_route & reject;_' > bird/youtube.txt
+cat list/rutube.lst | sed 's_.*_route & reject;_' > bird/ru/rutube.txt
+cat list/wb.lst | sed 's_.*_route & reject;_' > bird/ru/wb.txt
