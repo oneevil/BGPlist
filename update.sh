@@ -33,6 +33,7 @@ update "https://iplist.opencck.org/?format=text&data=cidr4&site=messenger.com&si
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=deezer.com&site=spotify.com" list/music.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/oracle/ipv4_merged.txt list/oracle.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/ozonru/ipv4_merged.txt list/ozon.lst
+update "https://iplist.opencck.org/?format=text&data=cidr4&site=pornhub.com" list/porn.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=hdrezka.ag" list/rezka.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/rugov/ipv4_merged.txt list/rugov.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=tiktok.com" list/tiktok.lst
@@ -56,6 +57,7 @@ cat list/kinopub.lst | sed 's_.*_route & reject;_' > bird/kinopub.txt
 cat list/meta.lst | sed 's_.*_route & reject;_' > bird/meta.txt
 cat list/music.lst | sed 's_.*_route & reject;_' > bird/music.txt
 cat list/oracle.lst | sed 's_.*_route & reject;_' > bird/oracle.txt
+cat list/porn.lst | sed 's_.*_route & reject;_' > bird/porn.txt
 cat list/rezka.lst | sed 's_.*_route & reject;_' > bird/rezka.txt
 cat list/roblox.lst | sed 's_.*_route & reject;_' > bird/roblox.txt
 cat list/telegram.lst | sed 's_.*_route & reject;_' > bird/telegram.txt
