@@ -31,7 +31,7 @@ update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/meta/ipv4_me
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/telegram/ipv4_merged.txt list/telegram.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/tiktok/ipv4_merged.txt list/tiktok.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/oracle/ipv4_merged.txt list/oracle.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/roblox/ipv4_merged.txt list/roblox.lst
+#update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/roblox/ipv4_merged.txt list/roblox.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/youtube/ipv4_merged.txt list/youtube.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/avito/ipv4_merged.txt list/avito.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/ozonru/ipv4_merged.txt list/ozon.lst
