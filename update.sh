@@ -36,6 +36,7 @@ update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/avito/ipv4_m
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/ozonru/ipv4_merged.txt list/ozon.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/rugov/ipv4_merged.txt list/rugov.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/vkontakte/ipv4_merged.txt list/vkontakte.lst
+update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/yandex/ipv4_merged.txt list/yandex.lst
 
 cat list/akamai.lst | sed 's_.*_route & reject;_' > bird/akamai.txt
 cat list/amazon.lst | sed 's_.*_route & reject;_' > bird/amazon.txt
@@ -57,3 +58,4 @@ cat list/ozon.lst | sed 's_.*_route & reject;_' > bird/ru/ozon.txt
 cat list/rugov.lst | sed 's_.*_route & reject;_' > bird/ru/rugov.txt
 cat list/start.lst | sed 's_.*_route & reject;_' > bird/ru/start.txt
 cat list/vkontakte.lst | sed 's_.*_route & reject;_' > bird/ru/vkontakte.txt
+cat list/yandex.lst | sed 's_.*_route & reject;_' > bird/ru/yandex.txt
