@@ -1,13 +1,3 @@
-route 151.0.0.0/8 reject;
+route 176.109.112.0/20 reject;
 route 176.114.112.0/20 reject;
-route 185.141.224.0/24 reject;
-route 185.31.113.0/24 reject;
-route 185.31.114.0/23 reject;
-route 213.180.204.0/24 reject;
-route 46.42.191.0/24 reject;
-route 78.159.240.0/20 reject;
-route 81.222.127.0/24 reject;
-route 91.238.108.0/22 reject;
-route 91.240.168.0/22 reject;
-route 93.158.134.0/24 reject;
-route 95.181.176.0/21 reject;
+route 185.89.12.0/22 reject;

@@ -23,16 +23,16 @@ update() {
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/akamai/ipv4_merged.txt list/akamai.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/amazon/ipv4_merged.txt list/amazon.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/amazoncloudfront/ipv4_merged.txt list/amazoncloudfront.lst
-update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=avito.ru" list/avito.lst
-update "https://iplist.opencck.org/?format=text&data=cidr4&site=chatgpt.com" list/chatgpt.lst
+update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/avito/ipv4_merged.txt list/avito.lst
+update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/chatgpt/ipv4_merged.txt list/chatgpt.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/cloudflare/ipv4_merged.txt list/cloudflare.lst
-update "https://iplist.opencck.org/?format=text&data=cidr4&site=discord.com&site=discord.gg&site=discord.media" list/discord.lst
+update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/discord/ipv4_merged.txt list/discord.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/google/ipv4_merged.txt list/google.lst
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=yandex%40kinopoisk.ru" list/kinopoiskru.lst
-update "https://iplist.opencck.org/?format=text&data=cidr4&site=kino.pub" list/kinopub.lst
+update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/kinopub/ipv4_merged.txt list/kinopub.lst
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=mail.ru&site=mailru%40cloud.mail.ru&site=mailru%40news.mail.ru&site=mailru%40other&site=mailru%40otvet.mail.ru" list/mailru.lst
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=messenger.com&site=whatsapp.com&site=facebook.com&site=instagram.com" list/meta.lst
-update "https://iplist.opencck.org/?format=text&data=cidr4&site=deezer.com&site=spotify.com" list/music.lst
+update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/spotify/ipv4_merged.txt list/spotify.lst
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=ok.ru" list/okru.lst
 update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/oracle/ipv4_merged.txt list/oracle.lst
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=ozon.ru" list/ozon.lst
@@ -62,7 +62,7 @@ cat list/kinopoiskru.lst | sed 's_.*_route & reject;_' > bird/ru/kinopoiskru.txt
 cat list/kinopub.lst | sed 's_.*_route & reject;_' > bird/kinopub.txt
 cat list/mailru.lst | sed 's_.*_route & reject;_' > bird/ru/mailru.txt
 cat list/meta.lst | sed 's_.*_route & reject;_' > bird/meta.txt
-cat list/music.lst | sed 's_.*_route & reject;_' > bird/music.txt
+cat list/spotify.lst | sed 's_.*_route & reject;_' > bird/spotify.txt
 cat list/okru.lst | sed 's_.*_route & reject;_' > bird/ru/okru.txt
 cat list/oracle.lst | sed 's_.*_route & reject;_' > bird/oracle.txt
 cat list/porn.lst | sed 's_.*_route & reject;_' > bird/porn.txt
