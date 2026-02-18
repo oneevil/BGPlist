@@ -296,6 +296,7 @@ route 212.102.62.0/24 reject;
 route 212.102.63.0/24 reject;
 route 212.154.0.0/17 reject;
 route 212.154.200.96/27 reject;
+route 212.188.77.0/24 reject;
 route 212.252.78.64/26 reject;
 route 212.252.79.64/26 reject;
 route 212.47.128.0/19 reject;
