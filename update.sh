@@ -46,7 +46,7 @@ update "https://iplist.opencck.org/?format=text&data=cidr4&site=1337x.to&site=bo
 update "https://iplist.opencck.org/?format=text&data=cidr4&site=telegram.org" list/telegram.lst
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=vk.com&site=vk%40vkplay.ru&site=vk%40vkvideo.ru" list/vkontakte.lst
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=yandex%40kinopoisk.ru&site=yandex.ru&site=yandex%40alice&site=yandex%40auto.ru&site=yandex%40business&site=yandex%40cdn&site=yandex%40cloud&site=yandex%40disk&site=yandex%40mail&site=yandex%40maps&site=yandex%40market&site=yandex%40media&site=yandex%40other&site=yandex%40smartcaptcha&site=yandex%40tools&site=yandex%40web" list/yandex.lst
-update "https://iplist.opencck.org/?format=text&data=cidr4&site=youtube.com" list/youtube.lst
+#update "https://iplist.opencck.org/?format=text&data=cidr4&site=youtube.com" list/youtube.lst
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=rutube.ru" list/rutube.lst
 update "https://russia.iplist.opencck.org/?format=text&data=cidr4&site=wb.ru" list/wb.lst
 

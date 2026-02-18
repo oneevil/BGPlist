@@ -399,7 +399,6 @@ route 212.90.48.0/20 reject;
 route 213.152.1.64/27 reject;
 route 213.202.0.0/21 reject;
 route 213.55.64.0/18 reject;
-route 213.59.192.0/18 reject;
 route 216.105.64.0/20 reject;
 route 216.123.192.0/18 reject;
 route 216.19.176.0/20 reject;
