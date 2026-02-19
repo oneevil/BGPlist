@@ -1,65 +1,74 @@
 #!/bin/bash
 
+BASE_URL="https://raw.githubusercontent.com/you-oops-dev/ipranges/main"
+MAX_PARALLEL=5
+
+SOURCES=(
+  "akamai:list/akamai.lst:bird/akamai.txt"
+  "amazon:list/amazon.lst:bird/amazon.txt"
+  "amazoncloudfront:list/amazoncloudfront.lst:bird/amazoncloudfront.txt"
+  "avito:list/avito.lst:bird/ru/avito.txt"
+  "chatgpt:list/chatgpt.lst:bird/chatgpt.txt"
+  "cloudflare:list/cloudflare.lst:bird/cloudflare.txt"
+  "discord:list/discord.lst:bird/discord.txt"
+  "google:list/google.lst:bird/google.txt"
+  "kinopub:list/kinopub.lst:bird/kinopub.txt"
+  "meta:list/meta.lst:bird/meta.txt"
+  "spotify:list/spotify.lst:bird/spotify.txt"
+  "oracle:list/oracle.lst:bird/oracle.txt"
+  "ozonru:list/ozon.lst:bird/ru/ozon.txt"
+  "rezka:list/rezka.lst:bird/rezka.txt"
+  "rugov:list/rugov.lst:bird/ru/rugov.txt"
+  "tiktok:list/tiktok.lst:bird/tiktok.txt"
+  "telegram:list/telegram.lst:bird/telegram.txt"
+  "vkontakte:list/vkontakte.lst:bird/ru/vkontakte.txt"
+  "yandex:list/yandex.lst:bird/ru/yandex.txt"
+  "youtube:list/youtube.lst:bird/youtube.txt"
+)
+
+BIRD_ONLY=(
+  "list/cubred.lst:bird/cubred.txt"
+  "list/start.lst:bird/ru/start.txt"
+)
+
+generate_bird() {
+  local src="$1" dst="$2"
+  [[ -f "$src" ]] && sed 's_.*_route & reject;_' "$src" > "$dst"
+}
+
 update() {
-  url="$1"
-  file="$2"
+  local service="$1" list_file="$2" bird_file="$3"
+  local url="${BASE_URL}/${service}/ipv4_merged.txt"
+  local tmp
 
   tmp=$(mktemp)
 
   if wget -q --timeout=30 --connect-timeout=30 --tries=1 -O "$tmp" "$url"; then
-    if ! cmp -s "$tmp" "$file" 2>/dev/null; then
-      install -m 644 "$tmp" "$file"
-      echo "Updated: $file"
+    if ! cmp -s "$tmp" "$list_file" 2>/dev/null; then
+      install -m 644 "$tmp" "$list_file"
+      echo "Updated: $list_file"
     else
-      echo "No change: $file"
+      echo "No change: $list_file"
     fi
   else
-    echo "Download failed: $file"
+    echo "Download failed: $list_file"
   fi
 
   rm -f "$tmp"
+
+  generate_bird "$list_file" "$bird_file"
 }
 
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/akamai/ipv4_merged.txt list/akamai.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/amazon/ipv4_merged.txt list/amazon.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/amazoncloudfront/ipv4_merged.txt list/amazoncloudfront.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/avito/ipv4_merged.txt list/avito.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/chatgpt/ipv4_merged.txt list/chatgpt.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/cloudflare/ipv4_merged.txt list/cloudflare.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/discord/ipv4_merged.txt list/discord.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/google/ipv4_merged.txt list/google.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/kinopub/ipv4_merged.txt list/kinopub.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/meta/ipv4_merged.txt list/meta.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/spotify/ipv4_merged.txt list/spotify.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/oracle/ipv4_merged.txt list/oracle.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/ozonru/ipv4_merged.txt list/ozon.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/rezka/ipv4_merged.txt list/rezka.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/rugov/ipv4_merged.txt list/rugov.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/tiktok/ipv4_merged.txt list/tiktok.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/telegram/ipv4_merged.txt list/telegram.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/vkontakte/ipv4_merged.txt list/vkontakte.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/yandex/ipv4_merged.txt list/yandex.lst
-update https://raw.githubusercontent.com/you-oops-dev/ipranges/main/youtube/ipv4_merged.txt list/youtube.lst
+count=0
+for entry in "${SOURCES[@]}"; do
+  IFS=: read -r service list_file bird_file <<< "$entry"
+  update "$service" "$list_file" "$bird_file" &
 
-cat list/akamai.lst | sed 's_.*_route & reject;_' > bird/akamai.txt
-cat list/amazon.lst | sed 's_.*_route & reject;_' > bird/amazon.txt
-cat list/amazoncloudfront.lst | sed 's_.*_route & reject;_' > bird/amazoncloudfront.txt
-cat list/chatgpt.lst | sed 's_.*_route & reject;_' > bird/chatgpt.txt
-cat list/cloudflare.lst | sed 's_.*_route & reject;_' > bird/cloudflare.txt
-cat list/cubred.lst | sed 's_.*_route & reject;_' > bird/cubred.txt
-cat list/discord.lst | sed 's_.*_route & reject;_' > bird/discord.txt
-cat list/google.lst | sed 's_.*_route & reject;_' > bird/google.txt
-cat list/kinopub.lst | sed 's_.*_route & reject;_' > bird/kinopub.txt
-cat list/meta.lst | sed 's_.*_route & reject;_' > bird/meta.txt
-cat list/spotify.lst | sed 's_.*_route & reject;_' > bird/spotify.txt
-cat list/oracle.lst | sed 's_.*_route & reject;_' > bird/oracle.txt
-cat list/rezka.lst | sed 's_.*_route & reject;_' > bird/rezka.txt
-cat list/telegram.lst | sed 's_.*_route & reject;_' > bird/telegram.txt
-cat list/tiktok.lst | sed 's_.*_route & reject;_' > bird/tiktok.txt
-cat list/avito.lst | sed 's_.*_route & reject;_' > bird/ru/avito.txt
-cat list/ozon.lst | sed 's_.*_route & reject;_' > bird/ru/ozon.txt
-cat list/rugov.lst | sed 's_.*_route & reject;_' > bird/ru/rugov.txt
-cat list/start.lst | sed 's_.*_route & reject;_' > bird/ru/start.txt
-cat list/vkontakte.lst | sed 's_.*_route & reject;_' > bird/ru/vkontakte.txt
-cat list/yandex.lst | sed 's_.*_route & reject;_' > bird/ru/yandex.txt
-cat list/youtube.lst | sed 's_.*_route & reject;_' > bird/youtube.txt
+  (( ++count % MAX_PARALLEL == 0 )) && wait
+done
+wait
+
+for entry in "${BIRD_ONLY[@]}"; do
+  IFS=: read -r src dst <<< "$entry"
+  generate_bird "$src" "$dst"
+done
