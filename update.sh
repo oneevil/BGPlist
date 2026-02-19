@@ -42,6 +42,7 @@ update() {
   local tmp
 
   tmp=$(mktemp)
+  trap 'rm -f "$tmp"' RETURN
 
   if wget -q --timeout=30 --connect-timeout=30 --tries=1 -O "$tmp" "$url"; then
     if ! cmp -s "$tmp" "$list_file" 2>/dev/null; then
@@ -51,20 +52,18 @@ update() {
       echo "No change: $list_file"
     fi
   else
-    echo "Download failed: $list_file"
+    echo "Download failed: $list_file" >&2
   fi
-
-  rm -f "$tmp"
 
   generate_bird "$list_file" "$bird_file"
 }
 
-count=0
 for entry in "${SOURCES[@]}"; do
   IFS=: read -r service list_file bird_file <<< "$entry"
+  while (( $(jobs -rp | wc -l) >= MAX_PARALLEL )); do
+    wait -n 2>/dev/null
+  done
   update "$service" "$list_file" "$bird_file" &
-
-  (( ++count % MAX_PARALLEL == 0 )) && wait
 done
 wait
 
